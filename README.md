@@ -1,6 +1,7 @@
 # Pandemic
 
-- **Play time**: 5 minute set up + 10 minute gameplay
+- **Setup time**: 5 minutes
+- **Gameplay time**: 1 minute per player
 - **Players**: 4-12
 - **Required**: 1 NFC chip per person
 

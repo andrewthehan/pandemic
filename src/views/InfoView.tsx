@@ -19,7 +19,10 @@ export default function InfoView({ setView }: Props) {
       <div className="flex-1">
         <div className="text-slate-400">
           <div className="my-1">
-            <b>Play time</b>: 5 minute set up + 10 minute gameplay
+            <b>Setup time</b>: 5 minutes
+          </div>
+          <div className="my-1">
+            <b>Gameplay time</b>: 1 minute per player
           </div>
           <div className="my-1">
             <b>Players</b>: 4-12
