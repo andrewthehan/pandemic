@@ -54,23 +54,16 @@ export default function ContactView({ setView }: Props) {
         y.gainedVaccinesFrom.add(x.id);
         y.vaccines++;
       }
-      return;
-    }
-
-    if (x.isInfected && y.isInfected) {
-      return;
-    }
-
-    if (x.isInfected) {
+    } else if (x.isInfected && y.isInfected) {
+      // do nothing
+    } else if (x.isInfected && !y.isInfected) {
       if (y.vaccines > 0) {
         y.vaccines--;
         x.isInfected = false;
       } else {
         y.isInfected = true;
       }
-    }
-
-    if (y.isInfected) {
+    } else if (!x.isInfected && y.isInfected) {
       if (x.vaccines > 0) {
         x.vaccines--;
         y.isInfected = false;
