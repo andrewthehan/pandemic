@@ -40,7 +40,8 @@ export default function InfoView({ setView }: Props) {
             <div className="my-2">
               <b>Doctors</b> want to collect as many vaccines as possible.
               Doctors don't know what role other people are. A doctor wins if
-              they have at least 3 vaccines at the end of the game.
+              they are not infected and have at least 3 vaccines at the end of
+              the game.
             </div>
             <div className="my-2">
               <b>Imposters</b> want to infect as many people as possible.

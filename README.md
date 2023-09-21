@@ -2,14 +2,14 @@
 
 - **Setup time**: 5 minutes
 - **Gameplay time**: 1 minute per player
-- **Players**: 4-12
+- **Players**: 4+
 - **Required**: 1 NFC chip per person
 
 **Pandemic** is a social deduction game.
 
 ## Roles
 
-- **Doctors** want to collect as many vaccines as possible. Doctors don't know what role other people are. A doctor wins if they have at least 3 vaccines at the end of the game.
+- **Doctors** want to collect as many vaccines as possible. Doctors don't know what role other people are. A doctor wins if they are not infected and have at least 3 vaccines at the end of the game.
 - **Imposters** want to infect as many people as possible. Imposters know who the other imposters are. An imposter wins if at least half the group rounded down is infected at the end of the game.
 
 ## Actions
