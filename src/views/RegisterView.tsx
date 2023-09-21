@@ -4,8 +4,8 @@ import { GameContext } from "../contexts/GameContext";
 import { useForceUpdate } from "../hooks/ForceUpdate";
 import { createChip } from "../model/Chip";
 import { useNfcRead } from "../nfc/NfcUtils";
-import View from "./View";
 import { repeat, shuffle } from "../utils/ArrayUtils";
+import View from "./View";
 
 type Props = {
   setView: (view: View) => void;
@@ -52,8 +52,8 @@ export default function RegisterView({ setView }: Props) {
       </div>
       <div className="flex-1 flex flex-row flex-wrap justify-center items-center">
         {Array.from(gameState.chips).map(([id, chip]) => (
-          <div key={id} className={id === lastScanned ? `animate-bounce` : ""}>
-            <ChipComponent chip={chip} />
+          <div key={id} className="m-2">
+            <ChipComponent chip={chip} size={80} bounce={id === lastScanned} />
           </div>
         ))}
       </div>
@@ -65,7 +65,7 @@ export default function RegisterView({ setView }: Props) {
           setView(View.ACTION);
         }}
       >
-        {gameState.chips.size < 4 ? "Requires at least 4 players" : "Start"} 
+        {gameState.chips.size < 4 ? "Requires at least 4 players" : "Start"}
       </button>
     </div>
   );

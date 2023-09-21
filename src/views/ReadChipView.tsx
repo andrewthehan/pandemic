@@ -1,6 +1,8 @@
-import { Fragment, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import ChipComponent from "../components/ChipComponent";
+import DetailedChipComponent from "../components/DetailedChipComponent";
 import { GameContext } from "../contexts/GameContext";
+import { createReadChipLog } from "../model/ActionLog";
 import Chip from "../model/Chip";
 import { useNfcRead } from "../nfc/NfcUtils";
 import View from "./View";
@@ -21,32 +23,23 @@ export default function ReadChipView({ setView }: Props) {
     }
 
     setChip(chip);
+    gameState.actionLogs.push(createReadChipLog(chip));
+
     return false;
   });
 
   return (
-    <div
-      className={`w-full h-full flex flex-col justify-around items-center ${
-        chip?.isInfected ? "bg-rose-800" : "bg-green-700"
-      }`}
-    >
-      {chip == null ? (
-        <div className="text-5xl m-3">
-          Scan your chip and be sure to hide the screen
-        </div>
-      ) : (
-        <Fragment>
-          <div className="flex flex-col justify-around items-center">
-            <ChipComponent chip={chip} />
-            <div className="rounded-full py-2 px-4 m-6 text-2xl bg-white text-black">
-              {chip.vaccines} vaccine{chip.vaccines === 1 ? "" : "s"}
-            </div>
-          </div>
-          <div className="text-5xl">
-            {chip.isInfected ? "Infected" : "Not infected"}
-          </div>
-        </Fragment>
-      )}
+    <div className="w-full h-full py-6 flex flex-col justify-around items-center bg-green-700">
+      <div className="text-5xl m-3">
+        Scan your chip and be sure to hide the screen
+      </div>
+      <div className="flex-1 flex justify-center items-center">
+        {chip == null ? (
+          <ChipComponent size={200} />
+        ) : (
+          <DetailedChipComponent chip={chip} />
+        )}
+      </div>
       <button
         className="rounded border-2 px-6 py-2 text-2xl"
         onClick={() => setView(View.ACTION)}

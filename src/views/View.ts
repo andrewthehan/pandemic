@@ -6,6 +6,7 @@ enum View {
   READ_CHIP,
   CONTACT,
   ACTIVATE_VACCINE,
+  END,
 }
 
 export default View;

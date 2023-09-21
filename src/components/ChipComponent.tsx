@@ -2,25 +2,33 @@ import Chip from "../model/Chip";
 
 type Props = {
   chip?: Chip;
+  size?: number;
+  bounce?: boolean;
 };
+
+export function getChipCharacter(chip?: Chip): string {
+  return chip == null
+    ? "None"
+    : String.fromCharCode("A".charCodeAt(0) + Math.abs(hashCode(chip.id) % 26));
+}
 
 export function getChipColor(chip?: Chip): string {
   return chip == null ? "gray" : `hsl(${hashCode(chip.id)}, 50%, 50%)`;
 }
 
-export default function ChipComponent({ chip }: Props) {
-  const randomCharacter =
-    chip == null
-      ? "None"
-      : String.fromCharCode(
-          "A".charCodeAt(0) + Math.abs(hashCode(chip.id) % 26)
-        );
+export default function ChipComponent({
+  chip,
+  size = 100,
+  bounce = false,
+}: Props) {
   return (
     <div
-      className="m-4 border-2 rounded-full text-3xl w-24 h-24 flex justify-center items-center"
-      style={{ background: getChipColor(chip) }}
+      className={`border-2 rounded-full text-3xl flex justify-center items-center ${
+        bounce ? "animate-bounce" : ""
+      }`}
+      style={{ background: getChipColor(chip), width: size, height: size }}
     >
-      {randomCharacter}
+      {getChipCharacter(chip)}
     </div>
   );
 }

@@ -36,6 +36,12 @@ export default function ActionView({ setView }: Props) {
       >
         Activate vaccine
       </button>
+      <button
+        className="flex-[0.5] text-xl bg-slate-500"
+        onClick={() => setView(View.END)}
+      >
+        End game
+      </button>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import { GameContext } from "../contexts/GameContext";
 import Chip from "../model/Chip";
 import { useNfcRead } from "../nfc/NfcUtils";
 import View from "./View";
+import { copyChip, createContactLog } from "../model/ActionLog";
 
 type Props = {
   setView: (view: View) => void;
@@ -41,6 +42,9 @@ export default function ContactView({ setView }: Props) {
   );
 
   function contact(x: Chip, y: Chip) {
+    const xBefore = copyChip(x);
+    const yBefore = copyChip(y);
+
     if (!x.isInfected && !y.isInfected) {
       if (!x.gainedVaccinesFrom.has(y.id)) {
         x.gainedVaccinesFrom.add(y.id);
@@ -74,14 +78,16 @@ export default function ContactView({ setView }: Props) {
         x.isInfected = true;
       }
     }
+
+    gameState.actionLogs.push(createContactLog(xBefore, x, yBefore, y));
   }
 
   return (
-    <div className="w-full h-full flex flex-col justify-around items-center bg-indigo-600">
+    <div className="w-full h-full py-6 flex flex-col justify-around items-center bg-indigo-600">
       <div className="text-5xl m-3">Scan two chips to make contact</div>
-      <div className="flex flex-row">
-        <ChipComponent chip={a} />
-        <ChipComponent chip={b} />
+      <div className="flex-1 flex flex-row justify-center items-center space-x-8">
+        <ChipComponent chip={a} size={128} />
+        <ChipComponent chip={b} size={128} />
       </div>
       <div className="space-x-16">
         {a != null && b != null && (

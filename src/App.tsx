@@ -10,6 +10,7 @@ import InfoView from "./views/InfoView";
 import ReadChipView from "./views/ReadChipView";
 import RegisterView from "./views/RegisterView";
 import View from "./views/View";
+import EndView from "./views/EndView";
 
 function App() {
   useWarnOnClose();
@@ -32,6 +33,8 @@ function App() {
         return <ContactView setView={setView} />;
       case View.ACTIVATE_VACCINE:
         return <ActivateVaccineView setView={setView} />;
+      case View.END:
+        return <EndView setView={setView} />;
     }
   }
 
