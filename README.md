@@ -27,9 +27,9 @@ Contact another player.
 - Normal + Normal =
   Each player receives 1 vaccine. However, connecting with the same person twice will not produce another vaccine.
 - Infected + Infected =
-  Nothing happens.
+  Nothing happens. Even if the infected players have vaccines, players can only cure others if they are normal themselves.
 - Normal + Infected =
-  If the normal player has at least 1 vaccine, the infected player becomes cured and a vaccine is spent. Otherwise, the normal player becomes infected.
+  The normal player becomes infected. If the normal player has at least 1 vaccine, the infected player becomes cured and a vaccine is spent.
 
 ### Activate vaccine
 

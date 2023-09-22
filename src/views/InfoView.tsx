@@ -75,14 +75,17 @@ export default function InfoView({ setView }: Props) {
               </div>
               <div>
                 <Infected /> + <Infected /> =
-                <div className="pl-4">Nothing happens.</div>
+                <div className="pl-4">
+                  Nothing happens. Even if the infected players have vaccines,
+                  players can only cure others if they are normal themselves.
+                </div>
               </div>
               <div>
                 <Normal /> + <Infected /> =
                 <div className="pl-4">
-                  If the normal player has at least 1 vaccine, the infected
-                  player becomes cured and a vaccine is spent. Otherwise, the
-                  normal player becomes infected.
+                  The normal player becomes infected. If the normal player has
+                  at least 1 vaccine, the infected player becomes cured and a
+                  vaccine is spent.
                 </div>
               </div>
             </div>
