@@ -125,11 +125,7 @@ export default function EndView({ setView }: Props) {
       <div className="flex justify-center">
         <button
           className="rounded border-2 mb-6 px-6 py-2 text-2xl"
-          onClick={() => {
-            gameState.chips.clear();
-            gameState.actionLogs = [];
-            setView(View.HOME);
-          }}
+          onClick={() => setView(View.HOME)}
         >
           Back
         </button>

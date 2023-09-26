@@ -57,16 +57,18 @@ export default function ContactView({ setView }: Props) {
     } else if (x.isInfected && y.isInfected) {
       // do nothing
     } else if (x.isInfected && !y.isInfected) {
-      y.isInfected = true;
       if (y.vaccines > 0) {
         y.vaccines--;
         x.isInfected = false;
+      } else {
+        y.isInfected = true;
       }
     } else if (!x.isInfected && y.isInfected) {
-      x.isInfected = true;
       if (x.vaccines > 0) {
         x.vaccines--;
         y.isInfected = false;
+      } else {
+        x.isInfected = true;
       }
     }
 

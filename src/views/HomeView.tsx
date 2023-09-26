@@ -1,10 +1,13 @@
+import { useContext } from "react";
 import View from "./View";
+import { GameContext } from "../contexts/GameContext";
 
 type Props = {
   setView: (view: View) => void;
 };
 
 export default function HomeView({ setView }: Props) {
+  const gameState = useContext(GameContext);
   return (
     <div className="w-full h-full flex flex-col justify-center items-center background">
       <div className="text-6xl m-10">Pandemic</div>
@@ -16,6 +19,9 @@ export default function HomeView({ setView }: Props) {
               alert("Web NFC is not available. Use Chrome on Android.");
               return;
             }
+            gameState.round = 1;
+            gameState.chips.clear();
+            gameState.actionLogs = [];
             setView(View.REGISTER);
           }}
         >

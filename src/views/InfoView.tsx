@@ -22,7 +22,7 @@ export default function InfoView({ setView }: Props) {
             <b>Setup time</b>: 5 minutes
           </div>
           <div className="my-1">
-            <b>Gameplay time</b>: 1 minute per player
+            <b>Gameplay length</b>: 1 round per player
           </div>
           <div className="my-1">
             <b>Players</b>: 4-12
@@ -44,16 +44,17 @@ export default function InfoView({ setView }: Props) {
               the game.
             </div>
             <div className="my-2">
-              <b>Imposters</b> want to infect as many people as possible.
-              Imposters know who the other imposters are. An imposter wins if at
-              least half the group rounded down is infected at the end of the
-              game.
+              <b>Anti-vaxxers</b> want to infect as many people as possible.
+              Anti-vaxxers know who the other anti-vaxxers are. An anti-vaxxer
+              wins if at least half the group rounded down is infected at the
+              end of the game.
             </div>
           </div>
         </div>
         <div className="my-4">
-          Players take turns in <b>clockwise</b> order performing 1 of 3
-          actions:
+          For each round, players take turns in <b>clockwise</b> order
+          performing 1 of 3 actions. At the end of each round, the number of
+          infected players is revealed.
         </div>
         <div className="pl-4">
           <div className="my-4">
@@ -65,7 +66,8 @@ export default function InfoView({ setView }: Props) {
           <div className="my-4">
             <b>Contact</b>
             <div className="pl-4">
-              Contact another player.
+              Contact another player. The receiving player may not reject
+              contact.
               <div>
                 <Normal /> + <Normal /> =
                 <div className="pl-4">
@@ -83,9 +85,9 @@ export default function InfoView({ setView }: Props) {
               <div>
                 <Normal /> + <Infected /> =
                 <div className="pl-4">
-                  The normal player becomes infected. If the normal player has
-                  at least 1 vaccine, the infected player becomes cured and a
-                  vaccine is spent.
+                  If the normal player has at least 1 vaccine, the infected
+                  player becomes cured and a vaccine is spent. Otherwise, the
+                  normal player becomes infected.
                 </div>
               </div>
             </div>

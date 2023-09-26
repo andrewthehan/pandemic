@@ -3,20 +3,22 @@ import Chip from "../model/Chip";
 import ActionLog from "../model/ActionLog";
 
 export type GameState = {
+  round: number;
   chips: Map<string, Chip>;
   actionLogs: ActionLog[];
 };
 
-const gameState: GameState = {
+const initialGameState: GameState = {
+  round: 1,
   chips: new Map<string, Chip>(),
   actionLogs: [],
 };
 
-export const GameContext = createContext<GameState>(gameState);
+export const GameContext = createContext<GameState>(initialGameState);
 
 export function GameContextProvider({ children }: any) {
   return createElement(GameContext.Provider, {
-    value: gameState,
+    value: initialGameState,
     children,
   });
 }

@@ -11,6 +11,7 @@ import ReadChipView from "./views/ReadChipView";
 import RegisterView from "./views/RegisterView";
 import View from "./views/View";
 import EndView from "./views/EndView";
+import EndOfRoundSummaryView from "./views/EndOfRoundSummaryView";
 
 function App() {
   useWarnOnClose();
@@ -33,6 +34,8 @@ function App() {
         return <ContactView setView={setView} />;
       case View.ACTIVATE_VACCINE:
         return <ActivateVaccineView setView={setView} />;
+      case View.END_OF_ROUND_SUMMARY:
+        return <EndOfRoundSummaryView setView={setView} />;
       case View.END:
         return <EndView setView={setView} />;
     }
