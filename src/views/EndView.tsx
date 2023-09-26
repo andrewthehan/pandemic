@@ -105,7 +105,9 @@ export default function EndView({ setView }: Props) {
 
   return (
     <div className="w-full h-full py-6 px-4 flex flex-col justify-between items-stretch">
-      <div className="text-4xl text-center">End</div>
+      <div className="text-4xl text-center">
+        End ({gameState.round} round{gameState.round === 1 ? "" : "s"})
+      </div>
       <div className="flex-1">
         <div className="text-3xl my-2">Players</div>
         <div className="flex flex-row flex-wrap justify-around my-4">
